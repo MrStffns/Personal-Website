@@ -21,6 +21,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import headshot from './headshot.jpg';
 
 // --- Types ---
 interface TimelineItem {
@@ -119,27 +120,27 @@ export default function App() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center section-padding overflow-hidden">
-          <div className="absolute inset-0 -z-10">
+        <section className="relative pt-24 pb-16 flex items-center section-padding overflow-hidden">
+          <div className="absolute inset-0 z-0">
             <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand-500/20 rounded-full blur-[120px]" />
             <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px]" />
           </div>
 
-          <div className="max-w-4xl">
+          <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block py-1 px-3 rounded-full bg-brand-500/10 text-brand-500 text-xs font-bold tracking-widest uppercase mb-6">
                 Director of Global Web Operations
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9] mb-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] mb-6">
                 Orchestrating <br />
                 <span className="text-zinc-500 dark:text-zinc-400 italic">Global Digital</span> <br />
                 Experiences.
               </h1>
-              <p className="text-lg md:text-xl opacity-70 max-w-2xl mb-10 leading-relaxed">
+              <p className="text-lg opacity-70 max-w-xl mb-10 leading-relaxed">
                 Blending 20 years of digital marketing strategy with deep technical web infrastructure 
                 to drive global transformations for industry leaders.
               </p>
@@ -157,6 +158,33 @@ export default function App() {
                 >
                   <Linkedin className="w-4 h-4" /> LinkedIn
                 </a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative max-w-md mx-auto lg:mr-0"
+            >
+              <div className="absolute inset-0 bg-brand-500/10 rounded-3xl -rotate-3 scale-105" />
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl">
+                <img 
+                  src={headshot} 
+                  alt="Maria Steffens" 
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+              <div className="absolute -bottom-4 -left-4 glass-card p-4 rounded-xl shadow-xl hidden md:block">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center text-white">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold">Global Reach</div>
+                    <div className="text-[10px] opacity-60">20+ Countries Managed</div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
